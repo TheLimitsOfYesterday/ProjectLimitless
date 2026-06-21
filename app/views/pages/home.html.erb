@@ -1,0 +1,29 @@
+<% content_for :title, "Benjamin Lambert - Project Limitless" %>
+
+<section class="flex min-h-[70vh] flex-col items-center justify-center gap-10 py-12 md:flex-row md:gap-16">
+    <!--
+        Hero: circular profile photo + annular nav tiles to its right.
+        Phase 1 = structural shell only. The punch-in trigger on the profile image (Core Requirement 1, "Profile Landing Page Punch-In") and the arc-flattening responsive behavior get built as a dedicated island in a later phase. This just establishes layout + real navigation that works without JS.
+    -->
+    <div class="relative flex h-56 w-56 items-center justify-center rounded-full boarder border-ink-line bg-ink-surface shadow-tile md:h-72 md:w-72">
+        <span class="font-display text-sm text-mist-muted">Profile Photo</span>
+    </div>
+
+    <nav aria-label="Primary" class="flex flex-col gap-4">
+        <%= link_to about_path, class: "rounded-tile border border-ink-line bg-ink-surface px-6 py-3 text-sm text-mist transition-colors hover:border-signal hover:text-signal" do %>
+            About Me
+        <% end %>
+        <%= link_to projects_path, class: "rounded-tile border border-ink-line bg-ink-surface px-6 py-3 text-sm text-mist transition-colors hover:border-signal hover:text-signal" do %>
+            Projects
+        <% end %>
+        <%= link_to resume_path, class: "rounded-tile border border-ink-line bg-ink-surface px-6 py-3 text-sm text-mist transition-colors hover:border-signal hover:text-signal" do %>
+            Resume
+        <% end %>
+    </nav>
+</section>
+
+<section class="mx-auto flex max-w-md flex-col gap-3 pb-16">
+    <p class="text-center text-xs uppercase tracking-[0.2em] text-mist-muted">Frontend Bridge Check</p>
+    <div data-component="HelloReactWidget" data-props='<%= { label: "React" }.to_json %>'></div>
+    <div data-component="HelloSvelteWidget" data-props='<%= {label: "Svelte" }.to_json %>'></div>
+</section>

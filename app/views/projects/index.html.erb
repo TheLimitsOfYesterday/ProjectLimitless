@@ -1,0 +1,37 @@
+<% content_for :title, "Projects — Benjamin Lambert" %>
+
+<section class="py-16">
+  <h1 class="font-display text-2xl text-mist">Projects</h1>
+
+  <!--
+    Phase 1 item 2 (this file): static, accessible grid — works with zero JS,
+    real <a> tags to GitHub as a fallback.
+    Phase 1 item 3 will mount a ProjectShell island over this grid that
+    intercepts tile clicks for the punch-in transition instead of navigating
+    away, using @initial_project_slug (set by ProjectsController#show) to
+    support /projects/:slug deep links.
+    Phase 1 item 4 will mount a HoverPreview island per tile.
+  -->
+  <div
+    class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+    data-initial-project-slug="<%= @initial_project_slug %>"
+  >
+    <% @projects.each do |project| %>
+      <article
+        class="group rounded-tile border border-ink-line bg-ink-surface p-5 shadow-tile transition-colors hover:border-signal"
+        data-project-slug="<%= project.slug %>"
+        data-project-mobile-compatible="<%= project.mobile_compatible %>"
+      >
+        <div class="aspect-video rounded-tile border border-ink-line bg-ink/60"></div>
+
+        <h2 class="mt-4 font-display text-lg text-mist group-hover:text-signal">
+          <%= project.title %>
+        </h2>
+        <p class="mt-2 text-sm text-mist-muted"><%= project.summary %></p>
+
+        <%= link_to "View on GitHub", project.github_url, target: "_blank", rel: "noopener noreferrer",
+              class: "mt-4 inline-block text-sm text-signal hover:underline" if project.github_url.present? %>
+      </article>
+    <% end %>
+  </div>
+</section>

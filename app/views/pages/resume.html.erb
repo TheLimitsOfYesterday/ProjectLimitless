@@ -1,0 +1,18 @@
+<% content_for :title, "Resume - Benjamin Lambert" %>
+
+<section class="mx-auto max-w-2x1 py-16">
+    <h1 class="font-display text-2x1 text-mist">Resume</h1>
+    <p class="mt-4 text-mist-muted">
+        Interactive timeline (Core Requirement 3) is Phase 2 work - needs the
+        <code class="text-signal">TimelineEntry</code> model and expand/collapse
+        component before theres real content here.
+    </p>
+
+    <% if @timeline_entries.present? %>
+        <ul class="mt-8 flex flex-col gap-4">
+            <% @timeline_entries.each do |entry| %>
+            <li class="rounded-tile border border-ink-line bg-ink-surface p-4"><%= en %></li>
+            <% end %>
+        </ul>
+    <% end %>
+</section>

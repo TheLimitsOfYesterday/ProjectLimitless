@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.1",
+    "vite": "^8.0.0",
+    "vite-plugin-ruby": "^5.2.0"
+  },
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "@tailwindcss/vite": "^4.3.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "svelte": "^5.56.3"
+  }
+}
